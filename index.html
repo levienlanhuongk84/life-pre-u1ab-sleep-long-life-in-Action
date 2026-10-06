@@ -305,6 +305,53 @@ button.chip.on { background: var(--purple); color: #fff; border-color: var(--pur
   .strip { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .sort-row .it { min-width: 100%; }
 }
+
+/* v2: stages × interaction moves */
+.stg { display: inline-block; font-family: var(--font-cond); font-weight: 700; font-size: .78em; text-transform: uppercase; letter-spacing: .08em; padding: 3px 10px; border-radius: 6px; white-space: nowrap; }
+.stg.rec, .stepnav a.rec { background: #EDE3F7; color: #4A2467; }
+.stg.con, .stepnav a.con { background: #E3ECFB; color: #1F4E9E; }
+.stg.gui, .stepnav a.gui { background: #E1F2F1; color: #17665F; }
+.stg.per, .stepnav a.per { background: #FCEBDD; color: #A2401B; }
+.stg.tra, .stepnav a.tra { background: #FFF1CC; color: #7A5600; }
+.stg.ret, .stepnav a.ret { background: #DFF1E5; color: #22603C; }
+:root[data-theme="dark"] .stg, :root[data-theme="dark"] .stepnav a.rec, :root[data-theme="dark"] .stepnav a.con, :root[data-theme="dark"] .stepnav a.gui, :root[data-theme="dark"] .stepnav a.per, :root[data-theme="dark"] .stepnav a.tra, :root[data-theme="dark"] .stepnav a.ret { filter: brightness(.9) saturate(1.1); color: #1b1024; }
+.stepnav a small { font-family: var(--font-mono); font-weight: 500; opacity: .75; margin-left: 2px; }
+.block.stage { border-top: 5px solid var(--purple); }
+.block.stage.con { border-top-color: #2A62C4; } .block.stage.gui { border-top-color: #1F8A80; } .block.stage.per { border-top-color: #DD5A28; } .block.stage.tra { border-top-color: #E0A100; } .block.stage.ret { border-top-color: #2E7D4F; }
+.stage-head { margin-bottom: 14px; scroll-margin-top: 70px; }
+.stage-head { scroll-margin-top: 80px; }
+.sh-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 10px; }
+.sh-top h3 { font-size: 1.45em; }
+.goal { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.goal div { background: var(--surface-2); border-radius: 10px; padding: 8px 12px; font-size: .93em; }
+.goal b { display: block; font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .08em; font-size: .78em; color: var(--orange-ink); }
+@media (max-width: 640px) { .goal { grid-template-columns: 1fr; } }
+.moves { display: flex; flex-wrap: wrap; gap: 5px; }
+.mv { font-size: .78em; padding: 3px 9px; border-radius: 999px; border: 1px dashed var(--line-strong); color: var(--muted); white-space: nowrap; }
+.mv.on { border-style: solid; border-color: var(--purple); background: var(--purple-soft); color: var(--purple-ink); font-weight: 700; }
+.sub { display: flex; align-items: center; gap: 10px; margin: 22px 0 8px; padding-top: 14px; border-top: 1px solid var(--line); }
+.stage-head + .sub { border-top: 0; padding-top: 0; margin-top: 6px; }
+.sub-no { font-family: var(--font-mono); font-weight: 700; font-size: .85em; background: var(--purple); color: #fff; border-radius: 8px; padding: 3px 8px; }
+.sub h4 { margin: 0; font-size: 1.15em; color: var(--purple-ink); }
+.sub-t { margin-left: auto; font-family: var(--font-mono); font-size: .8em; color: var(--ink-2); }
+ol.how { counter-reset: h; list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 6px; }
+ol.how li { counter-increment: h; position: relative; padding-left: 32px; font-size: .96em; line-height: 1.7; }
+ol.how li::before { content: counter(h); position: absolute; left: 0; top: .2em; width: 22px; height: 22px; border-radius: 50%; background: var(--orange-soft); color: var(--orange-ink); font-family: var(--font-mono); font-weight: 700; font-size: .78em; display: grid; place-items: center; }
+ol.how .role-tag { font-size: .85em; padding: 2px 8px; }
+.stage-end { margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--line); display: flex; justify-content: flex-end; }
+.legend { margin-top: 12px; font-size: .85em; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
+.lv-dot { font-family: var(--font-cond); font-weight: 700; padding: 1px 8px; border-radius: 999px; }
+.lv-dot.l1 { background: var(--l1-soft); color: var(--l1); } .lv-dot.l2 { background: var(--l2-soft); color: var(--l2); } .lv-dot.l3 { background: var(--l3-soft); color: var(--l3); }
+.matrix { width: 100%; border-collapse: collapse; font-size: .9em; }
+.matrix th, .matrix td { padding: 7px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+.matrix th { font-weight: 500; font-size: .82em; color: var(--ink-2); text-align: center; }
+.matrix th:first-child, .matrix th:last-child { text-align: left; }
+.matrix th span { display: block; font-family: var(--font-cond); font-weight: 700; font-size: .9em; }
+.matrix td.d { text-align: center; color: var(--purple); font-size: 1.1em; }
+.matrix td small { display: block; color: var(--ink-2); margin-top: 3px; }
+.matrix td.dw { font-size: .85em; color: var(--ink-2); min-width: 200px; }
+.dots button { white-space: nowrap; }
+
 /* mobile rail */
 @media (max-width: 900px) {
   body { flex-direction: column; }
@@ -931,17 +978,37 @@ function video(v) {
 }
 
 /* ---------------- overview sheet ---------------- */
+/* Two layers: 6 learning stages (kept from the original sheet) × 6 interaction moves */
+const MOVES = [["solo", "🧠", "Try alone"], ["pair", "👥", "Compare"], ["coach", "🧭", "Coach"], ["up", "🚀", "Upgrade"], ["rot", "⟳", "Rotate roles"], ["ret", "✍️", "Retrieve alone"]];
+const STAGES = [
+  { k: "rec", name: "Recognition", title: "Meet the words", min: 18, moves: ["solo", "pair", "coach", "rot"],
+    goal: "Understand what each chunk means and how it is built.", done: "Sort: 8 or more correct · every CCQ answered without looking." },
+  { k: "con", name: "Controlled", title: "Choose and correct", min: 9, moves: ["solo", "pair", "coach", "up", "rot"],
+    goal: "Choose the right chunk and say why it is right.", done: "5/6 or more correct · a reason for every answer · 3 wrong sentences fixed." },
+  { k: "gui", name: "Guided", title: "Upgrade my answer", min: 6, moves: ["solo", "coach", "up", "rot"],
+    goal: "Answer a real question, then make it better with one Tier 2 chunk.", done: "The final answer has 1 or more Tier 2 chunks, in your own words." },
+  { k: "per", name: "Personalized", title: "Who in your group?", min: 4, moves: ["pair", "coach", "up", "rot"],
+    goal: "Ask natural questions and turn the answers into chunks.", done: "5 prompts asked naturally · 1 report to the class." },
+  { k: "tra", name: "Transfer", title: "One problem, three levels", min: 5, moves: ["solo", "pair", "coach", "up", "rot"],
+    goal: "Use the chunks in a new situation.", done: "The Checker counts 3 Tier 1 + 2 Tier 2 chunks." },
+  { k: "ret", name: "Retrieval", title: "Alone, no notes", min: 3, moves: ["ret"],
+    goal: "Show that YOU can use the chunks, without help.", done: "Frame completed with no notes · 8 or more in the 3-second challenge." }
+];
+const movesStrip = on => `<div class="moves">${MOVES.map(m => `<span class="mv ${on.includes(m[0]) ? "on" : ""}" title="${m[2]}">${m[1]} ${m[2]}</span>`).join("")}</div>`;
+const how = steps => `<ol class="how">${steps.map(s => `<li>${s}</li>`).join("")}</ol>`;
+const LEGEND = `<div class="legend"><span class="lv-dot l1">● Core</span> Tier 1 · task done <span class="lv-dot l2">●● Stretch</span> + Tier 2 <span class="lv-dot l3">●●● Challenge</span> Challenge Card</div>`;
+
 function overviewSheet() {
   return `<article class="sheet" id="s-overview" role="tabpanel" data-title="How we work">
   <div class="hero">
     <span class="eyebrow" style="color:var(--gold)">Unit 1a–1b · Vocabulary in Action</span>
     <h2>One task. Three roles. Everyone speaks.</h2>
     <div class="flow"><span class="s">TRY</span><span class="a">→</span><span class="s">COACH</span><span class="a">→</span><span class="s">UPGRADE</span><span class="a">→</span><span class="s">RETRIEVE</span></div>
-    <p>Same input → same core task → different roles and support → help each other → everyone answers alone at the end.</p>
+    <p>Same words, same task for everyone. Different roles and different levels of answer. At the end, everyone shows what they can do alone.</p>
   </div>
 
   <section class="block">
-    <div class="group-head"><h3>1 · Your team of three</h3></div>
+    <div class="group-head"><span class="step-no">1</span><h3>Your team of three</h3></div>
     <p>Type your names. They appear in every task and in the bar at the top.</p>
     <div class="names">
       <label>A <input type="text" data-name="0" maxlength="18" autocomplete="off"></label>
@@ -950,88 +1017,88 @@ function overviewSheet() {
       <button class="btn sm ghost" type="button" data-reset-names>Reset</button>
     </div>
     <div class="grid3" style="margin-top:16px">
-      <div class="rolecard"><div class="rt">${R.speaker()}</div><ul><li>makes the sentence or the answer</li><li>tries first, before anyone helps</li><li>says it again, better, in their own words</li></ul></div>
+      <div class="rolecard"><div class="rt">${R.speaker()}</div><ul><li>tries first, before anyone helps</li><li>makes the sentence or the answer</li><li>says it again, better, in their own words</li></ul></div>
       <div class="rolecard"><div class="rt">${R.coach()}</div><ul><li>listens and helps to upgrade the language</li><li>never gives the answer straight away</li><li>fixes only ONE thing per turn</li></ul></div>
-      <div class="rolecard"><div class="rt">${R.checker()}</div><ul><li>checks meaning and collocation</li><li>asks one follow-up question</li><li>asks: <i>Why is that correct?</i></li></ul></div>
+      <div class="rolecard"><div class="rt">${R.checker()}</div><ul><li>checks meaning and collocation</li><li>asks <i>“Why?”</i> and one follow-up question</li><li>counts the chunks</li></ul></div>
     </div>
-    <div class="btn-row"><button class="btn" type="button" data-rotate>⟳ Rotate roles</button><span style="color:var(--ink-2);font-size:.9em">Rotate after every task, so everyone speaks, coaches and checks.</span></div>
+    <div class="btn-row"><button class="btn" type="button" data-rotate>⟳ Rotate roles</button><span style="color:var(--ink-2);font-size:.9em">We rotate after every stage, so everyone speaks, coaches and checks.</span></div>
   </section>
 
   <section class="block">
-    <div class="group-head"><h3>2 · How every activity runs</h3></div>
-    <div class="pathline"><span>🧠 Try alone</span><i>→</i><span>👥 Compare: C answers first</span><i>→</i><span>🧭 Coach prompts</span><i>→</i><span>🔁 Speaker says it again</span><i>→</i><span>🚀 Challenge extension</span><i>→</i><span>⟳ Rotate roles</span><i>→</i><span>✍️ Retrieve alone, no notes</span></div>
+    <div class="group-head"><span class="step-no">2</span><h3>Each group: 6 stages, 45 minutes</h3></div>
+    <p>The stages go from <b>understanding</b> the words to <b>using them alone</b>. The dots show how we work in each stage. Each stage starts with its <b>goal</b> and <b>done when…</b></p>
+    <div class="table-wrap"><table class="matrix">
+      <thead><tr><th>Stage</th><th>Min</th>${MOVES.map(m => `<th title="${m[2]}">${m[1]}<span>${m[2]}</span></th>`).join("")}</tr></thead>
+      <tbody>${STAGES.map((s, i) => `<tr><td><span class="stg ${s.k}">${i + 1} · ${s.name}</span><small>${s.title}</small></td><td class="num">${s.min}′</td>${MOVES.map(m => `<td class="d">${s.moves.includes(m[0]) ? "●" : ""}</td>`).join("")}</tr>`).join("")}</tbody>
+    </table></div>
+    <p style="margin-top:10px;font-size:.92em;color:var(--ink-2)">After Groups 1–4: <b>Jigsaw</b> (25′) · expert groups → mixed groups → individual quiz.</p>
   </section>
 
   <section class="block">
-    <div class="group-head"><h3>3 · The Coach protocol: ASK → PROMPT → MODEL → CHECK</h3></div>
+    <div class="group-head"><span class="step-no">3</span><h3>How to coach: ASK → PROMPT → MODEL → CHECK</h3></div>
     <div class="proto">
-      <div><b>① ASK</b>Ask a question about meaning.<br><i>“Do you mean you go to bed late or you fall asleep late?”</i></div>
+      <div><b>① ASK</b>Ask about meaning.<br><i>“Do you mean you go to bed late or you fall asleep late?”</i></div>
       <div><b>② PROMPT</b>Point to the language.<br><i>“Can you use one expression from Tier 1?”</i></div>
       <div><b>③ MODEL</b>Only if it still doesn't work.<br><i>“I usually go to bed late.”</i></div>
       <div><b>④ CHECK</b>The Speaker says the whole sentence again.<br><i>“I usually go to bed late because I have a lot of homework.”</i></div>
     </div>
-    <div class="coachbox" style="margin:14px 0 0">
-      <h4>🎯 Coach your partner</h4>
-      <p style="margin:0">Don't give the answer. Ask one question · give one clue · suggest one better expression · ask your partner to say it again. Find two problems, but fix only one per turn:</p>
-      <div class="ticks"><span class="chip">Meaning</span><span class="chip">Grammar</span><span class="chip">Collocation</span><span class="chip">Pronunciation</span><span class="chip">Better vocabulary</span><span class="chip">Fluency</span></div>
-    </div>
+    <p style="margin:12px 0 4px">Look for problems in: <span class="chip">Meaning</span> <span class="chip">Grammar</span> <span class="chip">Collocation</span> <span class="chip">Pronunciation</span> <span class="chip">Better vocabulary</span> <span class="chip">Fluency</span></p>
+    <p style="margin:0;font-size:.92em;color:var(--ink-2)">Find two problems. Fix only one per turn.</p>
   </section>
 
   <section class="block">
-    <div class="group-head"><h3>4 · Tiers and answer levels</h3></div>
-    <p><b>A tier is the level of the language, not the level of the student.</b></p>
+    <div class="group-head"><span class="step-no">4</span><h3>Tiers and answer levels</h3></div>
+    <p><b>A tier is the level of the language, not the level of the student.</b> Everyone must use Tier 1. Everyone tries Tier 2.</p>
     <div class="grid3">
-      <div class="tier must"><h4>Tier 1 · MUST USE</h4>Everyone must use these.</div>
-      <div class="tier try"><h4>Tier 2 · TRY TO USE</h4>Everyone should try these.</div>
+      <div class="tier must"><h4>Tier 1 · MUST USE</h4>Everyone uses these.</div>
+      <div class="tier try"><h4>Tier 2 · TRY TO USE</h4>Everyone tries these.</div>
       <div class="tier rec"><h4>Tier 3 · RECOGNISE</h4>Understand them when you hear them.</div>
     </div>
-    <p style="margin-top:14px">Every open task has suggested answers at three levels. Each one completes the task; the ceiling is different.</p>
+    <p style="margin-top:14px">Every open task has suggested answers at three levels. All three complete the task; only the ceiling is different.</p>
     <div class="ans-body">
-      <div class="lv l1"><span class="lvtag">● Core<small>Tier 1 · task achieved</small></span><p>I often [[stay up until midnight]] because I have a lot of homework. As a result, I [[feel tired]] the next morning.</p></div>
+      <div class="lv l1"><span class="lvtag">● Core<small>Tier 1 · task done</small></span><p>I often [[stay up until midnight]] because I have a lot of homework. As a result, I [[feel tired]] the next morning.</p></div>
       <div class="lv l2"><span class="lvtag">●● Stretch<small>+ Tier 2</small></span><p>Because I have [[a hectic schedule]], I often [[stay up until midnight]], so I [[feel tired]] the next morning.</p></div>
-      <div class="lv l3"><span class="lvtag">●●● Challenge<small>Challenge Card: cause–effect · contrast · recommendation · paraphrase</small></span><p>Because of my [[hectic schedule]], I sometimes end up [[burning the midnight oil]], which leaves me [[sleep-deprived]] the following morning.</p></div>
+      <div class="lv l3"><span class="lvtag">●●● Challenge<small>Challenge Card: cause–effect · contrast · advice · paraphrase</small></span><p>Because of my [[hectic schedule]], I sometimes end up [[burning the midnight oil]], which leaves me [[sleep-deprived]] the following morning.</p></div>
     </div>
-  </section>
-
-  <section class="block">
-    <div class="golden">Coaches do more <b>thinking</b>, not more talking.<br>Speakers get more <b>support</b>, not less speaking.</div>
-  </section>
-
-  <section class="block">
-    <div class="group-head"><h3>5 · Route</h3></div>
-    <div class="table-wrap"><table class="route">
-      <thead><tr><th>Sheet</th><th>Lexical field</th><th>Steps</th><th>Time</th></tr></thead>
-      <tbody>
-        ${GROUPS.map(g => `<tr><td><b>Group ${g.n}</b></td><td>${g.title}</td><td>Think alone · Compare · Teach back · Peer diagnosis · Coach mode · Upgrade my answer · Who in your group? · Transfer · Exit challenge</td><td class="num">≈ 45'</td></tr>`).join("")}
-        <tr><td><b>Jigsaw</b></td><td>All four groups</td><td>Expert groups → Mixed groups → Individual quiz</td><td class="num">≈ 25'</td></tr>
-      </tbody>
-    </table></div>
+    <div class="golden" style="margin-top:16px">Coaches do more <b>thinking</b>, not more talking.<br>Speakers get more <b>support</b>, not less speaking.</div>
   </section>
   </article>`;
 }
 
 /* ---------------- group sheet ---------------- */
+function stageHead(i, P) {
+  const s = STAGES[i];
+  return `<div class="stage-head" id="${P}-s${i + 1}">
+    <div class="sh-top"><span class="stg ${s.k}">Stage ${i + 1} / 6 · ${s.name}</span><h3>${s.title}</h3><span class="time-chip">⏱ ${s.min} min</span></div>
+    <div class="goal"><div><b>Goal</b>${s.goal}</div><div><b>Done when</b>${s.done}</div></div>
+    ${movesStrip(s.moves)}
+  </div>`;
+}
+const sub = (code, title, mins) => `<div class="sub"><span class="sub-no">${code}</span><h4>${title}</h4>${mins ? `<span class="sub-t">${mins}′</span>` : ""}</div>`;
+const endStage = (rot = true) => rot ? `<div class="stage-end"><button class="btn sm" type="button" data-rotate>⟳ Stage done · rotate roles</button></div>` : "";
+
 function groupSheet(g, gi) {
   const A = ANS[gi], P = g.id;
   const tierChips = arr => `<div class="chips">${arr.map(x => `<span class="chip">${x}</span>`).join("")}</div>`;
-  const steps = [["t", "Think alone"], ["c", "Compare"], ["tb", "Teach back"], ["pd", "Peer diagnosis"], ["cm", "Coach mode"], ["up", "Upgrade my answer"], ["who", "Who in your group?"], ["tr", "Transfer"], ["ex", "Exit challenge"]];
   let h = `<article class="sheet" id="s-${P}" role="tabpanel" data-title="Group ${g.n}" hidden>
-  <div class="sheet-head"><div><span class="eyebrow">Group ${g.n} / 4 · Vocabulary in Action</span><h2>${g.title}</h2></div></div>
-  <nav class="stepnav" aria-label="Steps">${steps.map((s, i) => `<a href="#${P}-${s[0]}">${i + 1} · ${s[1]}</a>`).join("")}</nav>
+  <div class="sheet-head"><div><span class="eyebrow">Group ${g.n} / 4 · Vocabulary in Action · 45 min</span><h2>${g.title}</h2></div></div>
+  <nav class="stepnav" aria-label="Stages">${STAGES.map((s, i) => `<a class="${s.k}" href="#${P}-s${i + 1}">${i + 1} · ${s.name} <small>${s.min}′</small></a>`).join("")}</nav>
 
   <section class="block">
-    <div class="group-head"><h3>Three tiers</h3></div>
+    <div class="group-head"><h3>The words · three tiers</h3></div>
     <div class="tiers">
       <div class="tier must"><h4><span>Tier 1 · MUST USE</span><span>${g.tiers.must.length}</span></h4>${tierChips(g.tiers.must)}</div>
       <div class="tier try"><h4><span>Tier 2 · TRY TO USE</span><span>${g.tiers.try.length}</span></h4>${tierChips(g.tiers.try)}</div>
       <div class="tier rec"><h4><span>Tier 3 · RECOGNISE</span><span>${g.tiers.rec.length}</span></h4>${tierChips(g.tiers.rec)}</div>
     </div>
+    ${LEGEND}
   </section>`;
 
-  /* 1 THINK ALONE */
-  h += `<section class="block">${head(1, "try", "Try", "Think alone: look, answer, sort", "6 min", P + "-t")}
-    <div class="rule"><span class="ic">🤫</span><div><b>No talking.</b> Everyone works alone first, on their own phone or notebook. Don't ask your partners yet.</div></div>
-    ${timer([[45, "Think 45″"], [60, "Think 60″"], [120, "Sort 2′"]])}
+  /* ===== Stage 1 · Recognition ===== */
+  h += `<section class="block stage rec">${stageHead(0, P)}
+    ${sub("1a", "Think alone", 5)}
+    ${how(["Look at the photos. Answer the questions <b>in your head</b>.", "Watch the clip and answer the question.", "Sort the expressions <b>on your own</b>.", "🤫 No talking yet."])}
+    ${timer([[60, "Think 60″"], [120, "Sort 2′"]])}
     <div class="photos" style="margin-top:12px">${g.context.photos.map(p => `<img src="${IMG(p[0])}" alt="${esc(p[1])}" loading="lazy">`).join("")}</div>
     <ol class="qlist">${g.context.qs.map(q => `<li>${q}</li>`).join("")}</ol>
     ${ans3(A.ctx)}
@@ -1039,125 +1106,109 @@ function groupSheet(g, gi) {
       ${video(g.context.video)}
       <div><span class="eyebrow">Watch the clip</span><p class="bigq">${g.context.video.q}</p>${ans3(A.vid)}</div>
     </div>
-    <h4 style="margin-top:20px">Sort alone · ${g.sort.task}</h4>
+    <p style="margin:18px 0 8px"><b>Sort:</b> ${g.sort.task}.</p>
     <div class="strip">${g.sort.strip.map(s => `<figure><img src="${IMG(s[0])}" alt="${esc(s[1])}" loading="lazy"><figcaption>${s[1]}</figcaption></figure>`).join("")}</div>
     <div class="sort" data-sort="${gi}">${g.sort.items.map((it, i) => `<div class="sort-row" data-i="${i}"><span class="it">${it[0]}</span>${g.sort.cats.map(c => `<button class="cat" type="button" data-cat="${esc(c)}">${c}</button>`).join("")}</div>`).join("")}</div>
-    <p style="margin-top:8px;color:var(--ink-2);font-size:.9em">Don't check yet: you'll check together in step 2.</p>
-  </section>`;
 
-  /* 2 COMPARE */
-  h += `<section class="block">${head(2, "coach", "Coach", "Compare: C answers first", "4 min", P + "-c")}
-    <div class="roles-line"><span class="role-tag speaker">🎤 Member C · <b data-member="2"></b></span><span style="align-self:center">says the answers first.</span></div>
-    <div class="card"><b>Members A and B may only:</b>
-      <div class="proto" style="margin-top:8px">
-        <div><b>✓ Confirm</b>“I agree.”</div>
-        <div><b>? Question</b>“Why do you think so?”</div>
-        <div><b>💡 Give a clue</b>“Look at the photo again. Is there a ball?”</div>
-        <div><b>✗ Not allowed</b>Saying the answer straight away.</div>
-      </div>
-      <div class="starters"><span>I think this one is …</span><span>I agree. Can you explain the difference between … and …?</span><span>Are you sure? Look at the verb.</span><span>Here's a clue: …</span></div>
-    </div>
+    ${sub("1b", "Compare: C answers first", 4)}
+    ${how([`<b>C</b> (<b data-member="2"></b>) says the answers first.`, "<b>A</b> and <b>B</b> may only: ✓ confirm · ? ask “Why?” · 💡 give a clue. Never the answer.", "Check your sort together.", "Answer the discovery question below."])}
+    <div class="starters"><span>I think this one is …</span><span>I agree. Can you explain the difference between … and …?</span><span>Are you sure? Look at the verb.</span><span>Here's a clue: …</span></div>
     <div class="btn-row"><button class="btn" type="button" data-sort-check="${gi}">Check our sort</button><button class="btn ghost" type="button" data-sort-show="${gi}">Show answers</button><button class="btn ghost" type="button" data-sort-reset="${gi}">Reset</button><span class="score" data-sort-score="${gi}"></span></div>
-    <div class="card" style="margin-top:16px"><span class="eyebrow">Discovery question</span><p class="bigq">${g.discover.q}</p>
-      <div class="roles-line">${R.speaker()}<span style="align-self:center">explains →</span>${R.checker()}<span style="align-self:center">asks “Why?” →</span>${R.coach()}<span style="align-self:center">adds one example</span></div>
+    <div class="card" style="margin-top:14px"><span class="eyebrow">Discovery question</span><p class="bigq">${g.discover.q}</p>
+      ${how([`${R.speaker()} explains.`, `${R.checker()} asks “Why?”.`, `${R.coach()} adds one example.`])}
       ${ans3(A.disc)}
       <div class="contrast" hidden data-contrast>${g.discover.a.map(c => `<div><b>${c[0]}</b>${c[1]}</div>`).join("")}</div>
       <div class="btn-row"><button class="btn sm ghost" type="button" data-show-contrast>Show the rule</button></div>
     </div>
-    ${rotateBtn()}
-  </section>`;
 
-  /* 3 TEACH BACK */
-  h += `<section class="block">${head(3, "coach", "Coach", "Teach back: meaning, CCQs, form", "10 min", P + "-tb")}
-    <div class="roles-line">${R.checker()}<span style="align-self:center">reads a question →</span>${R.speaker()}<span style="align-self:center">answers without looking →</span>${R.coach()}<span style="align-self:center">taps to check</span></div>
+    ${sub("1c", "Teach back: meaning, CCQs, form", 9)}
+    ${how([`${R.checker()} reads a question (CCQ).`, `${R.speaker()} answers without looking.`, `${R.coach()} taps the question to check the answer.`, "Chunk cards: the Speaker says the chunks <b>before</b> the card is flipped."])}
     <div class="grid3">${g.ccq.map(c => `<div class="mcard">
       <div class="mh">${c.head}</div>${c.ipa ? `<div class="ipa">${c.ipa}</div>` : ""}
       ${c.video ? video(c.video) : c.img ? `<img src="${IMG(c.img[0])}" alt="${esc(c.img[1])}" loading="lazy">` : ""}
       <div class="sec">Meaning</div><div style="font-size:.93em">${md(c.meaning)}</div>
-      <div class="sec">CCQs</div><div class="ccq">${c.ccqs.map(q => `<button type="button">${q[0]} <span class="a">→ ${q[1]}</span></button>`).join("")}</div>
+      <div class="sec">CCQs · tap to check</div><div class="ccq">${c.ccqs.map(q => `<button type="button">${q[0]} <span class="a">→ ${q[1]}</span></button>`).join("")}</div>
       <div class="sec">Form</div>${c.ok.map(x => `<div class="form-ok">✓ ${x}</div>`).join("")}${c.bad.map(x => `<div class="form-bad">✗ ${x}</div>`).join("")}
     </div>`).join("")}</div>
-    <h4 style="margin-top:18px">Learn chunks · the Speaker says the chunks before the Coach flips the card</h4>
+    <p style="margin:16px 0 8px"><b>Chunk cards</b> · say the chunks, then tap to flip.</p>
     <div class="flips">${g.flips.map(f => `<button class="flip" type="button"><img src="${IMG(f[0])}" alt="" loading="lazy"><span class="k">${f[1]}</span><span class="c">${f[2]}</span></button>`).join("")}</div>
     <div class="btn-row"><button class="btn sm ghost" type="button" data-flip-all>Show all chunks</button></div>
-    ${rotateBtn()}
+    ${endStage()}
   </section>`;
 
-  /* 4 PEER DIAGNOSIS */
-  h += `<section class="block">${head(4, "coach", "Coach", "Peer diagnosis: which one, and why?", "7 min", P + "-pd")}
-    <div class="rule"><span class="ic">🧠</span><div>Answer <b>alone</b> first. Then compare in your team. For every item: the Speaker gives the answer, the Coach explains <b>why</b>, the Checker gives <b>another natural collocation</b>.</div></div>
+  /* ===== Stage 2 · Controlled ===== */
+  h += `<section class="block stage con">${stageHead(1, P)}
+    ${sub("2a", "Peer diagnosis: which one, and why?", 6)}
+    ${how(["Everyone answers all 6 <b>alone</b>.", `${R.speaker()} says the answer.`, `${R.coach()} explains <b>why</b> it is correct.`, `${R.checker()} gives <b>another natural collocation</b>.`, "Press Check. Open the answers to compare."])}
     <div data-mcq="${gi}">${g.mcq.map((q, i) => `<div class="mcq" data-a="${q.a}"><div class="stem">${i + 1} · ${q.s}</div><div class="opts">${q.o.map((o, j) => `<button class="o" type="button" data-j="${j}"><b>${"ABC"[j]}</b>${o}</button>`).join("")}</div>
-      <div class="ans3"><button class="ans-toggle" type="button">Answer · why · lexical network</button><div class="ans-body" hidden>
+      <div class="ans3"><button class="ans-toggle" type="button">Answer · Why? · More collocations</button><div class="ans-body" hidden>
         <div class="lv l1"><span class="lvtag">● Core<small>the answer</small></span><p>${"ABC"[q.a]} · ${q.o[q.a]}</p></div>
-        <div class="lv l2"><span class="lvtag">●● Stretch<small>why it's correct</small></span><p>${q.why}</p></div>
-        <div class="lv l3"><span class="lvtag">●●● Challenge<small>give another natural collocation</small></span><p>${q.ext}</p></div>
+        <div class="lv l2"><span class="lvtag">●● Stretch<small>why it is correct</small></span><p>${q.why}</p></div>
+        <div class="lv l3"><span class="lvtag">●●● Challenge<small>more natural collocations</small></span><p>${q.ext}</p></div>
       </div></div></div>`).join("")}</div>
     <div class="btn-row"><button class="btn" type="button" data-mcq-check="${gi}">Check</button><button class="btn ghost" type="button" data-mcq-reset="${gi}">Reset</button><span class="score" data-mcq-score="${gi}"></span></div>
-    ${rotateBtn()}
-  </section>`;
 
-  /* 5 COACH MODE */
-  h += `<section class="block">${head(5, "coach", "Coach", "Coach mode: fix one thing at a time", "4 min", P + "-cm")}
-    <div class="roles-line">${R.speaker()}<span style="align-self:center">reads the sentence aloud →</span>${R.coach()}<span style="align-self:center">ticks the problems, then fixes ONE with ASK → PROMPT →</span>${R.checker()}<span style="align-self:center">checks the new sentence</span></div>
+    ${sub("2b", "Coach mode: fix one thing at a time", 3)}
+    ${how([`${R.speaker()} reads the wrong sentence aloud.`, `${R.coach()} taps the problems (find 2), then fixes only 1 with a question.`, `${R.speaker()} says the sentence again.`, `${R.checker()} checks the new sentence.`])}
     ${g.drill.map((d, i) => `<div class="drill" data-issues="${d.issues.join("|")}"><div class="wrongs">${d.w}</div>
       <div class="ticks">${["Meaning", "Grammar", "Collocation", "Pronunciation", "Better vocabulary", "Fluency"].map(t => `<button type="button" data-tick="${t}">${t}</button>`).join("")}</div>
       <div class="ans3"><button class="ans-toggle" type="button" data-drill-reveal>Suggested answers · 3 levels</button><div class="ans-body" hidden>
         <div class="lv l1"><span class="lvtag">● Core<small>the correct sentence</small></span><p>${md(d.fix)}</p></div>
-        <div class="lv l2"><span class="lvtag">●● Stretch<small>the coaching move · problems: ${d.issues.join(", ")}</small></span><p><b>ASK:</b> ${d.ask}</p></div>
+        <div class="lv l2"><span class="lvtag">●● Stretch<small>the coaching question · problems: ${d.issues.join(", ")}</small></span><p><b>ASK:</b> ${d.ask}</p></div>
         <div class="lv l3"><span class="lvtag">●●● Challenge<small>upgrade it with Tier 2</small></span><p>${md(A.drillUp[i])}</p></div>
       </div></div></div>`).join("")}
-    ${rotateBtn()}
+    ${endStage()}
   </section>`;
 
-  /* 6 UPGRADE MY ANSWER */
+  /* ===== Stage 3 · Guided ===== */
   const u = g.upgrade;
   const coreUp = (u.r2.split("→")[1] || "").trim().replace(/^“|”$/g, "");
   const rounds = [
-    ["speaker", "Round 1 · Answer naturally", "20 seconds. Say what is true for you. Nobody corrects yet.", ans1(u.r1, "Suggested answer")],
-    ["coach", "Round 2 · Choose ONE upgrade only", "Pick one Tier 2 expression for your partner. The Speaker says the answer again with it.",
-      `<div class="chips" data-pick-one>${u.pick.map(p => `<button class="chip" type="button">${p}</button>`).join("")}</div><p data-pick-out style="margin-top:8px;color:var(--ink-2)"></p>` + ans1(u.r2, "Suggested answer")],
-    ["checker", "Round 3 · Ask ONE follow-up question", "Ask a real question. The Speaker answers in a full sentence.",
-      `<div class="qa">${u.follow.map((f, i) => `<div><b>Q:</b> ${f}</div>`).join("")}</div>` + `<div class="ans3"><button class="ans-toggle" type="button">Suggested answers</button><div class="ans-body" hidden>${u.follow.map((f, i) => `<div class="lv l1"><p><b>${f}</b><br>${md(A.followA[i])}</p></div>`).join("")}</div></div>`],
-    ["coach", "Round 4 · Model a richer answer", "The Coach answers the same question at Challenge level. Everyone listens for the Tier 2 chunks.", ans1(u.r4, "Suggested answer")],
-    ["speaker", "Round 5 · Reconstruct, don't repeat", "Say it again in your own words. Keep at least one new chunk. Don't copy the Coach word for word.", ans1(u.r5, "Suggested answer")]
+    ["speaker", "Answer", "Answer naturally in 20 seconds. Nobody corrects yet.", ans1(u.r1)],
+    ["coach", "Upgrade", "Choose ONE Tier 2 chunk for your partner. The Speaker answers again with it.",
+      `<div class="chips" data-pick-one>${u.pick.map(p => `<button class="chip" type="button">${p}</button>`).join("")}</div><p data-pick-out style="margin-top:8px;color:var(--ink-2)"></p>` + ans1(u.r2)],
+    ["checker", "Follow-up", "Ask ONE real follow-up question. The Speaker answers in a full sentence.",
+      `<div class="qa">${u.follow.map(f => `<div><b>Q:</b> ${f}</div>`).join("")}</div><div class="ans3"><button class="ans-toggle" type="button">Suggested answers</button><div class="ans-body" hidden>${u.follow.map((f, i) => `<div class="lv l1"><p><b>${f}</b><br>${md(A.followA[i])}</p></div>`).join("")}</div></div>`],
+    ["coach", "Model", "The Coach answers the same question at Challenge level. Everyone listens for the Tier 2 chunks.", ans1(u.r4)],
+    ["speaker", "Reconstruct", "Say it again in your own words. Keep 1 new chunk. Don't copy word for word.", ans1(u.r5)]
   ];
-  h += `<section class="block">${head(6, "upgrade", "Upgrade", "Upgrade my answer", "7 min", P + "-up")}
+  h += `<section class="block stage gui">${stageHead(2, P)}
     <p class="bigq" style="text-align:center">“${u.q}”</p>
     <div class="rounds" data-rounds>
-      <div class="dots">${rounds.map((r, i) => `<button type="button" data-r="${i}" class="${i ? "" : "on"}">Round ${i + 1}</button>`).join("")}</div>
-      ${rounds.map((r, i) => `<div class="round ${i ? "" : "on"}" data-round="${i}"><div class="rhead">${R[r[0]]()}<h4>${r[1]}</h4></div><p>${r[2]}</p>${r[3]}</div>`).join("")}
+      <div class="dots">${rounds.map((r, i) => `<button type="button" data-r="${i}" class="${i ? "" : "on"}">${i + 1} · ${r[1]}</button>`).join("")}</div>
+      ${rounds.map((r, i) => `<div class="round ${i ? "" : "on"}" data-round="${i}"><div class="rhead">${R[r[0]]()}<h4>Round ${i + 1} · ${r[1]}</h4></div><p>${r[2]}</p>${r[3]}</div>`).join("")}
       <div class="btn-row"><button class="btn ghost sm" type="button" data-rprev>← Back</button><button class="btn sm" type="button" data-rnext>Next round →</button></div>
     </div>
     <div style="margin-top:14px">${ans3([coreUp, u.r5, u.r4], "Whole answer · 3 levels")}</div>
-    ${rotateBtn()}
+    ${endStage()}
   </section>`;
 
-  /* 7 WHO IN YOUR GROUP */
-  h += `<section class="block">${head(7, "upgrade", "Upgrade", "Who in your group …?", "5 min", P + "-who")}
-    <div class="rule"><span class="ic">🗣</span><div><b>Don't read the prompt.</b> Ask a natural question first. If your partner says yes, check with the chunk: <i>“So would you say you …?”</i> Tap the names that match.</div></div>
+  /* ===== Stage 4 · Personalized ===== */
+  h += `<section class="block stage per">${stageHead(3, P)}
+    ${how(["<b>Don't read the prompt.</b> Ask a natural question.", "If the answer is yes, check with the chunk: <i>“So would you say you …?”</i>", "Tap the names that match.", "One member reports to the class; the other two add one detail each."])}
     ${g.who.map((w, i) => `<div class="who-row"><div class="p">Find someone who <b>${w.p}</b></div>
       <div class="who-names">${[0, 1, 2].map(m => `<button type="button" data-member="${m}"></button>`).join("")}</div>
       <div class="ans3"><button class="ans-toggle" type="button">Natural question + replies</button><div class="ans-body" hidden>
-        <div class="lv" style="background:var(--surface-2);border-color:var(--purple)"><span class="lvtag" style="color:var(--purple-ink)">Ask</span><p><b>Ask naturally:</b> “${w.nat}”<br><b>If yes, check with the chunk:</b> “${w.conf}”</p></div>
+        <div class="lv" style="background:var(--surface-2);border-color:var(--purple)"><p><b>Ask naturally:</b> “${w.nat}”<br><b>If yes, check with the chunk:</b> “${w.conf}”</p></div>
         ${A.who[i].map((t, k) => `<div class="lv ${LV[k][0]}"><span class="lvtag">${LV[k][1]}<small>${LV[k][2]}</small></span><p>${md(t)}</p></div>`).join("")}
       </div></div></div>`).join("")}
-    <div class="card" style="margin-top:14px"><span class="eyebrow">Report to the class</span><p>One member reports: who does what, and one surprise. Then the other two add one detail each.</p>${ans3(A.report)}</div>
-    ${rotateBtn()}
+    <div class="card" style="margin-top:14px"><span class="eyebrow">Report to the class</span><p>Who does what? Give one surprise.</p>${ans3(A.report)}</div>
+    ${endStage()}
   </section>`;
 
-  /* 8 TRANSFER */
-  h += `<section class="block">${head(8, "upgrade", "Upgrade", "Transfer: one problem, three ceilings", "6 min", P + "-tr")}
+  /* ===== Stage 5 · Transfer ===== */
+  h += `<section class="block stage tra">${stageHead(4, P)}
     <p class="bigq">${g.transfer.scene}</p>
+    ${how([`${R.speaker()} gives advice for 45 seconds: 3 Tier 1 + 2 Tier 2 chunks.`, `${R.checker()} taps every chunk they hear.`, `${R.coach()} suggests one upgrade. The Speaker tries again.`, "Want more? Take the Challenge Card."])}
     <div class="grid2">
       <div>
-        <div class="rule" style="margin-bottom:8px"><span class="ic">✅</span><div>Everyone: use at least <b>3 Tier 1</b> and <b>2 Tier 2</b> items. The Checker taps every item they hear.</div></div>
-        <div class="tier must" style="margin-bottom:8px"><h4>Tier 1</h4><div class="chips" data-count="must">${g.tiers.must.map(x => `<button class="chip" type="button">${x}</button>`).join("")}</div></div>
-        <div class="tier try"><h4>Tier 2</h4><div class="chips" data-count="try">${g.tiers.try.map(x => `<button class="chip" type="button">${x}</button>`).join("")}</div></div>
+        <div class="tier must" style="margin-bottom:8px"><h4>Tier 1 · tap what you hear</h4><div class="chips" data-count="must">${g.tiers.must.map(x => `<button class="chip" type="button">${x}</button>`).join("")}</div></div>
+        <div class="tier try"><h4>Tier 2 · tap what you hear</h4><div class="chips" data-count="try">${g.tiers.try.map(x => `<button class="chip" type="button">${x}</button>`).join("")}</div></div>
         <div class="counter"><span data-c-must>Tier 1 · 0 / 3</span><span data-c-try>Tier 2 · 0 / 2</span><button class="btn sm ghost" type="button" data-c-reset>Reset</button></div>
       </div>
       <div class="chcard">
         <h4>🚀 Challenge Card</h4>
-        <p style="font-size:.92em">Take it when you're ready for more. Do at least two:</p>
+        <p style="font-size:.92em">Do at least two:</p>
         <label><input type="checkbox"> explain cause and effect</label>
         <label><input type="checkbox"> give a counterargument</label>
         <label><input type="checkbox"> make a clear recommendation</label>
@@ -1165,22 +1216,20 @@ function groupSheet(g, gi) {
         <div style="margin-top:8px">${timer([[45, "Speak 45″"], [60, "Speak 60″"]])}</div>
       </div>
     </div>
-    <div class="roles-line" style="margin-top:12px">${R.speaker()}<span style="align-self:center">gives the advice →</span>${R.coach()}<span style="align-self:center">suggests one upgrade →</span>${R.checker()}<span style="align-self:center">counts the chunks and asks one follow-up</span></div>
     ${ans3([g.transfer.dev, A.mid, g.transfer.ch])}
-    ${rotateBtn()}
+    ${endStage()}
   </section>`;
 
-  /* 9 RETRIEVE */
-  h += `<section class="block">${head(9, "retrieve", "Retrieve", "Exit challenge: alone, no notes", "4 min", P + "-ex")}
-    <div class="rule"><span class="ic">✍️</span><div><b>Individual.</b> No notes, no partners. Complete the frame aloud or on paper.</div></div>
+  /* ===== Stage 6 · Retrieval ===== */
+  h += `<section class="block stage ret">${stageHead(5, P)}
+    ${how(["Press Start: your notes disappear.", "Complete the frame <b>alone</b>, aloud or on paper.", "Then do the 3-second challenge.", "Tick what you can use without notes."])}
     <p class="bigq">${g.exit.frame}</p>
-    <div class="btn-row"><button class="btn orange" type="button" data-exit="${gi}">Start the no-notes challenge</button></div>
-    <h4 style="margin-top:20px">3-second challenge · meaning → English</h4>
+    <div class="btn-row"><button class="btn orange" type="button" data-exit="${gi}">Start · no notes</button></div>
+    <p style="margin:18px 0 8px"><b>3-second challenge</b> · read the meaning, say the chunk before the answer appears.</p>
     <div class="deck" data-deck="${gi}"><div class="dn"></div><div class="dq">Press Start</div><div class="da"></div>
       <div class="btn-row" style="justify-content:center"><button class="btn" type="button" data-dstart>Start</button><button class="btn ghost" type="button" data-dshow>Show</button><button class="btn ghost" type="button" data-dnext>Next →</button><span class="score" data-dpos></span></div></div>
-    <h4 style="margin-top:20px">Did it work? I can use these without notes</h4>
+    <p style="margin:18px 0 8px"><b>Did it work?</b> I can use these without notes:</p>
     <div class="checklist grid2">${g.check.map(c => `<label><input type="checkbox">${c}</label>`).join("")}</div>
-    ${rotateBtn()}
   </section>
   </article>`;
   return h;
@@ -1191,7 +1240,7 @@ function jigsawSheet() {
   return `<article class="sheet" id="s-jigsaw" role="tabpanel" data-title="Jigsaw" hidden>
   <div class="sheet-head"><div><span class="eyebrow">All four groups · Expert → Mixed → Return</span><h2>Jigsaw: teach it, then prove it</h2></div></div>
   <section class="block">${head("A", "try", "Try", "Expert groups: prepare one lexical field", "8 min", "j-a")}
-    <p>Each expert group takes one field. Don't translate the words: prepare a 2-minute mini-lesson with the five parts below.</p>
+    ${how(["Each expert group takes one lexical field (one group of the unit).", "Don't translate the words. Prepare a 2-minute mini-lesson with the 5 parts below.", "Every member must be able to teach it alone."])}
     ${timer([[480, "Prepare 8′"], [300, "5′"]])}
     <div class="grid2" style="margin-top:12px">${GROUPS.map((g, i) => {
       const e = EXPERT[i];
@@ -1204,13 +1253,13 @@ function jigsawSheet() {
     }).join("")}</div>
   </section>
   <section class="block">${head("B", "coach", "Coach", "Mixed groups: four experts, two minutes each", "10 min", "j-b")}
-    <p>New groups: Expert 1 + Expert 2 + Expert 3 + Expert 4. Each expert teaches for 2 minutes and ends with their question. The listeners must answer using the new language.</p>
+    ${how(["Make new groups: Expert 1 + Expert 2 + Expert 3 + Expert 4.", "Each expert teaches for 2 minutes and ends with their question.", "The listeners answer the question using the new language."])}
     <div class="card" style="text-align:center"><div class="eyebrow" data-jturn>Expert 1 · ${GROUPS[0].title}</div>
       <div class="timer" style="justify-content:center;margin-top:8px"><span class="tdisp">2:00</span><button class="btn sm" type="button" data-sec="120">Teach 2′</button><button class="btn sm ghost" type="button" data-tstop>⏹</button><button class="btn sm ghost" type="button" data-jnext>Next expert →</button></div></div>
     <div class="rule"><span class="ic">🎯</span><div>An expert is successful when <b>the people they taught can use the language</b>, not when the explanation sounds good.</div></div>
   </section>
   <section class="block">${head("C", "retrieve", "Retrieve", "Return: individual quiz, no notes", "7 min", "j-c")}
-    <p>Work alone. Your score is shared with your experts: each group's result shows how well that field was taught.</p>
+    ${how(["Go back to your seat. Work alone, no notes.", "Answer all 12, then press Check.", "Each field's score is credit for the expert who taught it."])}
     <div data-mix>${MIXQ.map((q, i) => `<div class="mcq" data-a="${q.a}" data-g="${q.g}"><div class="stem">${i + 1} · ${q.s}</div><div class="opts">${q.o.map((o, j) => `<button class="o" type="button" data-j="${j}"><b>${"ABC"[j]}</b>${o}</button>`).join("")}</div></div>`).join("")}</div>
     <div class="btn-row"><button class="btn" type="button" data-mix-check>Check</button><button class="btn ghost" type="button" data-mix-reset>Reset</button><span class="score" data-mix-score></span></div>
     <div class="grid4" data-mix-credit style="margin-top:12px"></div>
